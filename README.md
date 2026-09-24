@@ -11,7 +11,7 @@ Stock quantity, stock movements, work orders, billing, and a separate dashboard 
 3. In Vercel, import the GitHub repository as a Next.js project. Add the environment variables below for Production (and Preview if you plan to test previews), then deploy:
    - `NEXT_PUBLIC_SUPABASE_URL`: the new project's API URL.
    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`: the new project's public/publishable key. Never use a secret or service-role key.
-   - `NEXT_PUBLIC_SITE_URL`: the deployed URL including `https://`, without a trailing slash.
+   - `NEXT_PUBLIC_SITE_URL`: the deployed URL including `https://`, without a trailing slash. The current public production URL is already supplied in `.env.production`; update it if the site domain changes.
 4. For local development, copy `.env.example` to `.env.local`, use the same Supabase URL and public key, set the site URL to `http://localhost:3000`, and allow `http://localhost:3000/auth/callback` in Supabase. Then run `npm install` and `npm run dev`.
 
 ## Test

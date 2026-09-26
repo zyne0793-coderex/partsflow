@@ -4,8 +4,10 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
   if (code) {
-    const { error } = await createClient().auth.exchangeCodeForSession(code);
-    if (!error) return NextResponse.redirect(`${origin}/parts`);
+    const { error } = await (
+      await createClient()
+    ).auth.exchangeCodeForSession(code);
+    if (!error) return NextResponse.redirect(`${origin}/auth/continue`);
   }
   return NextResponse.redirect(`${origin}/login?error=confirmation`);
 }

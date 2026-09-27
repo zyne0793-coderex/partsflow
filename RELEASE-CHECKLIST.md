@@ -16,11 +16,13 @@
 - Authenticated UI stock checks passed: issue 3 units linked to the work order, balance 7, and rejection of an 8-unit issue.
 - The work order was saved as completed with completion notes and its linked 3-unit issue displayed.
 - CSV download succeeded; the downloaded file contained the expected columns and fixture row with quantity 7, minimum stock 8 and archived false.
+- Searching for `TEST-BRG` with the Low stock filter returned the expected fixture row.
+- Test stock movements, work order and part were removed; database counts for those fixtures are all zero. The workspace was retained.
+- An anonymous request to production `/parts` returned the sign-in page (HTTP 200 after redirects).
 
 ## Required before production promotion
 
-1. Complete preview fixture cleanup and verify anonymous route protection.
-2. Mark PR #1 ready, merge the reviewed change into `main`, and confirm the production deployment at `https://partsflow-two.vercel.app`.
+1. Mark PR #1 ready, merge the reviewed change into `main`, and confirm the production deployment at `https://partsflow-two.vercel.app`.
 
 Only mark pending checks complete when exercised; database transaction tests do not replace browser verification. Keep email verification enabled.
 
